@@ -1,23 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Stacks_And_Queues
+namespace StacksAndQueues
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Pushing values to Stack");
-            LinkedListStack linkedListStack = new LinkedListStack();
-            linkedListStack.push(70);
-            linkedListStack.push(30);
-            linkedListStack.push(56);
-            linkedListStack.Display();
-            Console.WriteLine("Using Peek and Pop Till Stack is Empty");
-            linkedListStack.Peek();
-            linkedListStack.Pop();
-            linkedListStack.IsEmpty();
-            linkedListStack.Display();
+            //// Creating object
+            //LinkedListStack my_Stack = new LinkedListStack();
+            //my_Stack.Push(70);
+            //my_Stack.Push(30);
+            //my_Stack.Push(56);
+            //my_Stack.Display();
+            //my_Stack.IsEmpty();
 
+
+
+
+
+            LinkedListQueue queue = new LinkedListQueue();
+            queue.Enqueue(56);
+            queue.Enqueue(30);
+            queue.Enqueue(70);
+            queue.Display();
         }
     }
 }

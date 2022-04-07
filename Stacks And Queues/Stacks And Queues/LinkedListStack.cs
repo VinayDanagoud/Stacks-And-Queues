@@ -4,18 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stacks_And_Queues
+namespace StacksAndQueues
 {
     internal class LinkedListStack
     {
-        private Node top;
+
+        public Node top;
         public LinkedListStack()
         {
             this.top = null;
         }
-        internal void push(int value)
-        {
 
+        /// <summary>
+        /// Method to push element in the stack
+        /// </summary>
+        /// <param name="value"></param>
+        public void Push(int value)
+        {
             Node node = new Node(value);
             if (this.top == null)
             {
@@ -26,43 +31,60 @@ namespace Stacks_And_Queues
                 node.next = this.top;
             }
             this.top = node;
-            Console.WriteLine("{0} pushed to stack", value);
+            Console.WriteLine(value + " pushed to stack");
         }
-        internal void Display()
+
+        /// <summary>
+        /// Method to display stack
+        /// </summary>
+        public void Display()
         {
             Node temp = this.top;
             while (temp != null)
             {
-                Console.WriteLine(temp.data + " ");
+                Console.Write(temp.data + " ");
                 temp = temp.next;
             }
         }
-        internal void Peek()
+
+        /// <summary>
+        /// Returns the top element of stack without deleting it
+        /// </summary>
+        public void Peek()
         {
             if (this.top == null)
             {
                 Console.WriteLine("Stack is empty");
+                return;
             }
-            Console.WriteLine("{0} is in the top of the stack", this.top.data);
+            Console.WriteLine("\n" + this.top.data + " is in the top of the stack");
         }
-        internal void Pop()
+
+        /// <summary>
+        /// Delete the topmost element
+        /// </summary>
+        public void Pop()
         {
             if (this.top == null)
             {
-                Console.WriteLine("Stack is empty , delete is not possible");
+                Console.WriteLine("Stack is empty, Deletion is not possible");
                 return;
             }
-
-            Console.WriteLine("Value popped is {0}", this.top.data);
+            Console.WriteLine("Value popped is " + this.top.data);
             this.top = this.top.next;
         }
-        internal void IsEmpty()
+
+        /// <summary>
+        /// Check if the stack is empty
+        /// </summary>
+        public void IsEmpty()
         {
             while (this.top != null)
             {
                 Peek();
                 Pop();
             }
+            Console.WriteLine("Stack is empty");
         }
     }
 }
