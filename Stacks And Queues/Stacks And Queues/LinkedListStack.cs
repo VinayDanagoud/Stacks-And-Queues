@@ -4,22 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StacksAndQueues
+namespace Stacks_And_Queues
 {
     internal class LinkedListStack
     {
-        public Node top;
+        private Node top;
         public LinkedListStack()
         {
             this.top = null;
         }
-
-        /// <summary>
-        /// Method to push element in the stack
-        /// </summary>
-        /// <param name="value"></param>
-        public void Push(int value)
+        internal void push(int value)
         {
+
             Node node = new Node(value);
             if (this.top == null)
             {
@@ -30,19 +26,42 @@ namespace StacksAndQueues
                 node.next = this.top;
             }
             this.top = node;
-            Console.WriteLine(value + " pushed to stack");
+            Console.WriteLine("{0} pushed to stack", value);
         }
-
-        /// <summary>
-        /// Method to display stack
-        /// </summary>
-        public void Display()
+        internal void Display()
         {
             Node temp = this.top;
             while (temp != null)
             {
-                Console.Write(temp.data + " ");
+                Console.WriteLine(temp.data + " ");
                 temp = temp.next;
+            }
+        }
+        internal void Peek()
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine("Stack is empty");
+            }
+            Console.WriteLine("{0} is in the top of the stack", this.top.data);
+        }
+        internal void Pop()
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine("Stack is empty , delete is not possible");
+                return;
+            }
+
+            Console.WriteLine("Value popped is {0}", this.top.data);
+            this.top = this.top.next;
+        }
+        internal void IsEmpty()
+        {
+            while (this.top != null)
+            {
+                Peek();
+                Pop();
             }
         }
     }

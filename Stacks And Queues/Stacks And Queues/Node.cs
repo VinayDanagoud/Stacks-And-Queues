@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StacksAndQueues
+namespace Stacks_And_Queues
 {
     internal class Node
     {
@@ -15,5 +15,4 @@ namespace StacksAndQueues
             this.data = data;
         }
     }
-
 }
